@@ -1,6 +1,14 @@
-import { useForm } from "hooks/useForm";
+import { Dispatch, useContext, SetStateAction } from "react";
+import { v4 } from "uuid";
 
-import "../Form/NewExpenseForm.module.scss";
+import { useForm } from "hooks/useForm";
+import ExpenseContext from "context/ExpenseContext";
+
+import styles from "../Form/NewExpenseForm.module.scss";
+
+type ExpenseFormValue = {
+  toggleModal: Dispatch<SetStateAction<boolean>>;
+};
 
 type ExpenseFormValues = {
   name: string;
@@ -8,7 +16,9 @@ type ExpenseFormValues = {
   date: string;
 };
 
-const NewExpenseForm = () => {
+const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
+  const ctx = useContext(ExpenseContext);
+
   const initialState = {
     name: "",
     cost: "",
@@ -16,8 +26,14 @@ const NewExpenseForm = () => {
   };
 
   const onAdd = () => {
-    console.log(values);
+    ctx.addExpense({
+      id: v4(),
+      name: (values as ExpenseFormValues).name,
+      cost: (values as ExpenseFormValues).cost,
+      date: (values as ExpenseFormValues).date,
+    });
     clearForm();
+    toggleModal(false);
   };
 
   const { onChange, onSubmit, clearForm, values } = useForm(
@@ -33,7 +49,6 @@ const NewExpenseForm = () => {
         id="name"
         type="text"
         value={(values as ExpenseFormValues).name || initialState.name}
-        placeholder="Name"
         onChange={onChange}
         required
       />
@@ -43,7 +58,6 @@ const NewExpenseForm = () => {
         id="cost"
         type="number"
         value={(values as ExpenseFormValues).cost || initialState.cost}
-        placeholder="Cost"
         onChange={onChange}
         required
       />
@@ -53,7 +67,6 @@ const NewExpenseForm = () => {
         id="date"
         type="date"
         value={(values as ExpenseFormValues).date || initialState.date}
-        placeholder="Date"
         onChange={onChange}
         required
       />

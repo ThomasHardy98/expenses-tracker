@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 
-import Modal from "../Modal/Modal";
+import Modal from "../UI/Modal/Modal";
 import NewExpenseForm from "./Form/NewExpenseForm";
 
 const NewExpense = () => {
@@ -17,7 +17,7 @@ const NewExpense = () => {
   return (
     <Fragment>
       <Modal isOpen={isOpen} toggle={toggle} closeText="Cancel">
-        <NewExpenseForm />
+        <NewExpenseForm toggleModal={setIsOpen} />
       </Modal>
       <button onClick={clickHandler}>Add expense</button>
     </Fragment>

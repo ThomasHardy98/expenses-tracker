@@ -1,9 +1,11 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 
 import Modal from "../UI/Modal/Modal";
 import NewExpenseForm from "./Form/NewExpenseForm";
+import ExpenseContext from "context/ExpenseContext";
 
 const NewExpense = () => {
+  const ctx = useContext(ExpenseContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -19,7 +21,7 @@ const NewExpense = () => {
       <Modal isOpen={isOpen} toggle={toggle} closeText="Cancel">
         <NewExpenseForm toggleModal={setIsOpen} />
       </Modal>
-      <button onClick={clickHandler}>Add expense</button>
+      {ctx.budget > 0 && <button onClick={clickHandler}>Add expense</button>}
     </Fragment>
   );
 };

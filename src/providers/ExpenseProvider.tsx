@@ -8,6 +8,11 @@ type ExpenseProviderType = {
 
 const ExpenseProvider = ({ children }: ExpenseProviderType) => {
   const [expenses, setExpenses] = useState(Array<ExpenseType>);
+  const [budget, setBudget] = useState(0);
+
+  const updateBudget = (budget: number) => {
+    setBudget(budget);
+  };
 
   const addExpense = (expense: ExpenseType) => {
     setExpenses((prev) => [expense, ...prev]);
@@ -22,6 +27,8 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
     <ExpenseContext.Provider
       value={{
         expenses,
+        budget,
+        updateBudget,
         addExpense,
         deleteExpense,
       }}

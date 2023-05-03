@@ -9,9 +9,11 @@ import RemainingBudget from "components/Budget/RemainingBudget/RemainingBudget";
 import ExpenseContext from "context/ExpenseContext";
 
 import styles from "App.module.scss";
+import formatter from "helpers/formatter";
 
 function App() {
   const ctx = useContext(ExpenseContext);
+  const formattedBudget = formatter.format(ctx.budget);
 
   return (
     <div className={styles.container}>
@@ -19,7 +21,7 @@ function App() {
       {!ctx.hiddenBudgetInput && (
         <Fragment>
           <p>Enter your monthly budget</p>
-          {ctx.budget > 0 && <p>Current budget: £{ctx.budget}</p>}
+          {ctx.budget > 0 && <p>Current budget: {formattedBudget}</p>}
           <BudgetForm />
         </Fragment>
       )}

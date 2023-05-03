@@ -53,14 +53,18 @@ const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
         required
       />
       <label>Cost</label>
-      <input
-        name="cost"
-        id="cost"
-        type="number"
-        value={(values as ExpenseFormValues).cost || initialState.cost}
-        onChange={onChange}
-        required
-      />
+      <span>
+        £
+        <input
+          name="cost"
+          id="cost"
+          type="number"
+          step=".01"
+          value={(values as ExpenseFormValues).cost || initialState.cost}
+          onChange={onChange}
+          required
+        />
+      </span>
       <label>Date</label>
       <input
         name="date"

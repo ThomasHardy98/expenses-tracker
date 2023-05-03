@@ -1,5 +1,6 @@
-import { Fragment, useContext, useEffect } from "react";
+import { useContext } from "react";
 
+import formatter from "helpers/formatter";
 import ExpenseContext from "context/ExpenseContext";
 
 import styles from "../TotalExpense/TotalExpense.module.scss";
@@ -7,10 +8,12 @@ import styles from "../TotalExpense/TotalExpense.module.scss";
 const TotalExpense = () => {
   const ctx = useContext(ExpenseContext);
 
+  const expenditure = formatter.format(ctx.getTotalExpenditure());
+
   return (
     <div>
       <p>Total expenditure</p>
-      <p>£{ctx.getTotalExpenditure()}</p>
+      <p>{expenditure}</p>
     </div>
   );
 };

@@ -12,6 +12,7 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
   const [hiddenBudgetInput, setHiddenBudgetInput] = useState(false);
 
   const updateBudget = (budget: number) => {
+    (Math.round(budget * 100) / 100).toFixed(2);
     setBudget(budget);
   };
 
@@ -29,6 +30,7 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
       (total, currentValue) => (total = total + currentValue.cost),
       0
     );
+    result.toFixed(2);
     return result;
   };
 

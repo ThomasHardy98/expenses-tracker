@@ -15,7 +15,8 @@ const BudgetForm = () => {
   };
 
   const onAdd = () => {
-    ctx.updateBudget((values as BudgetFormValues).budget);
+    const budget = Number((values as BudgetFormValues).budget);
+    ctx.updateBudget(budget);
     ctx.changeHiddenBudgetInput(true);
     clearForm();
   };
@@ -27,15 +28,19 @@ const BudgetForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        name="budget"
-        id="budget"
-        type="number"
-        min="0"
-        value={(values as BudgetFormValues).budget || initialState.budget}
-        onChange={onChange}
-        required
-      />
+      <span>
+        £
+        <input
+          name="budget"
+          id="budget"
+          type="number"
+          min="0"
+          step=".01"
+          value={(values as BudgetFormValues).budget || initialState.budget}
+          onChange={onChange}
+          required
+        />
+      </span>
       <button type="submit">Update</button>
     </form>
   );

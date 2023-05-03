@@ -1,3 +1,5 @@
+import formatter from "helpers/formatter";
+
 type ExpenseType = {
   name: string;
   cost: number;
@@ -5,10 +7,12 @@ type ExpenseType = {
 };
 
 const Expense = ({ name, cost, date }: ExpenseType) => {
+  const costFormatted = formatter.format(cost);
+
   return (
     <div>
       <p>Name: {name}</p>
-      <p>Cost: £{cost}</p>
+      <p>Cost: {costFormatted}</p>
       <p>Date: {date}</p>
     </div>
   );

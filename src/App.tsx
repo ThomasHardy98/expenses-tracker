@@ -18,16 +18,15 @@ function App() {
   return (
     <div className={styles.container}>
       <h1>Monthly expense tracker</h1>
-      {!ctx.hiddenBudgetInput && (
+      {!ctx.hiddenBudgetInput ? (
         <Fragment>
           <p>Enter your monthly budget</p>
           {ctx.budget > 0 && <p>Current budget: {formattedBudget}</p>}
           <BudgetForm />
         </Fragment>
-      )}
-      <br />
-      {ctx.hiddenBudgetInput && (
+      ) : (
         <Fragment>
+          <br />
           <div className={styles.analytics}>
             <Budget />
             <TotalExpense />

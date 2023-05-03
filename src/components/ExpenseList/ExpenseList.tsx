@@ -14,6 +14,7 @@ const ExpenseList = () => {
         return (
           <li key={i} className={styles.listItem}>
             <Expense
+              id={expense.id}
               name={expense.name}
               cost={expense.cost}
               date={expense.date}

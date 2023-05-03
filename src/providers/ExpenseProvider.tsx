@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import ExpenseContext from "context/ExpenseContext";
 
@@ -11,18 +11,43 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
   const [budget, setBudget] = useState(0);
   const [hiddenBudgetInput, setHiddenBudgetInput] = useState(false);
 
+  useEffect(() => {
+    const localBudget = localStorage.getItem("thardy_budget");
+    if (localBudget) {
+      setBudget(JSON.parse(localBudget));
+    }
+    const localExpenses = localStorage.getItem("thardy_expenses");
+    if (localExpenses) {
+      setExpenses(JSON.parse(localExpenses));
+    }
+    const hiddenBool = localStorage.getItem("thardy_hiddenBudgetInput");
+    if (hiddenBool) {
+      setHiddenBudgetInput(JSON.parse(hiddenBool) === true);
+    }
+  }, []);
+
   const updateBudget = (budget: number) => {
     (Math.round(budget * 100) / 100).toFixed(2);
     setBudget(budget);
+    localStorage.setItem("thardy_budget", JSON.stringify(budget));
   };
 
   const addExpense = (expense: ExpenseType) => {
     setExpenses((prev) => [expense, ...prev]);
+    const currentExpenses = localStorage.getItem("thardy_expenses");
+    if (currentExpenses) {
+      const parsed = JSON.parse(currentExpenses);
+      parsed.unshift(expense);
+      localStorage.setItem("thardy_expenses", JSON.stringify(parsed));
+    } else {
+      localStorage.setItem("thardy_expenses", JSON.stringify([expense]));
+    }
   };
 
   const deleteExpense = (id: string) => {
     const newExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(newExpenses);
+    localStorage.setItem("thardy_expenses", JSON.stringify(newExpenses));
   };
 
   const getTotalExpenditure = () => {
@@ -36,6 +61,7 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
 
   const changeHiddenBudgetInput = (change: boolean) => {
     setHiddenBudgetInput(change);
+    localStorage.setItem("thardy_hiddenBudgetInput", JSON.stringify(change));
   };
 
   return (

@@ -21,3 +21,8 @@ body {
   flex-direction: column;
   padding: $padding;
 }
+
+.analytics {
+  display: flex;
+  gap: 10px;
+}

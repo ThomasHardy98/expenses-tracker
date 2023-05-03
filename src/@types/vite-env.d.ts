@@ -3,6 +3,6 @@
 type ExpenseType = {
   id: string;
   name: string;
-  cost: string;
+  cost: number;
   date: string;
 };

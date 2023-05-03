@@ -5,15 +5,16 @@ import ExpenseContext from "context/ExpenseContext";
 const Budget = () => {
   const ctx = useContext(ExpenseContext);
 
+  const buttonHandler = () => {
+    ctx.changeHiddenBudgetInput(false);
+  };
+
   return (
-    <Fragment>
-      {ctx.budget > 0 && (
-        <Fragment>
-          <p>Monthly budget</p>
-          <p>£{ctx.budget}</p>
-        </Fragment>
-      )}
-    </Fragment>
+    <div>
+      <p>Monthly budget</p>
+      <p>£{ctx.budget}</p>
+      <button onClick={buttonHandler}>Edit</button>
+    </div>
   );
 };
 

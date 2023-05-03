@@ -16,6 +16,7 @@ const BudgetForm = () => {
 
   const onAdd = () => {
     ctx.updateBudget((values as BudgetFormValues).budget);
+    ctx.changeHiddenBudgetInput(true);
     clearForm();
   };
 

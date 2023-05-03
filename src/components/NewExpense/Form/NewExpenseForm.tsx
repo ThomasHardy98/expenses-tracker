@@ -12,7 +12,7 @@ type ExpenseFormValue = {
 
 type ExpenseFormValues = {
   name: string;
-  cost: string;
+  cost: number;
   date: string;
 };
 
@@ -29,7 +29,7 @@ const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
     ctx.addExpense({
       id: v4(),
       name: (values as ExpenseFormValues).name,
-      cost: (values as ExpenseFormValues).cost,
+      cost: Number((values as ExpenseFormValues).cost),
       date: (values as ExpenseFormValues).date,
     });
     clearForm();

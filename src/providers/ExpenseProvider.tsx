@@ -9,6 +9,7 @@ type ExpenseProviderType = {
 const ExpenseProvider = ({ children }: ExpenseProviderType) => {
   const [expenses, setExpenses] = useState(Array<ExpenseType>);
   const [budget, setBudget] = useState(0);
+  const [hiddenBudgetInput, setHiddenBudgetInput] = useState(false);
 
   const updateBudget = (budget: number) => {
     setBudget(budget);
@@ -23,14 +24,29 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
     setExpenses(newExpenses);
   };
 
+  const getTotalExpenditure = () => {
+    const result = expenses.reduce(
+      (total, currentValue) => (total = total + currentValue.cost),
+      0
+    );
+    return result;
+  };
+
+  const changeHiddenBudgetInput = (change: boolean) => {
+    setHiddenBudgetInput(change);
+  };
+
   return (
     <ExpenseContext.Provider
       value={{
         expenses,
         budget,
+        hiddenBudgetInput,
         updateBudget,
         addExpense,
         deleteExpense,
+        getTotalExpenditure,
+        changeHiddenBudgetInput,
       }}
     >
       {children}

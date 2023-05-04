@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/spacing.scss";
+
+.button {
+  background-color: $light_color;
+  border: 1px solid $dark_color;
+  font-family: $primary_font;
+  color: $dark_color;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: $padding;
+  margin-top: $padding;
+}
+
+.button:hover {
+  background-color: $dark_color;
+  color: $light_color;
+  border: 1px solid $light_color;
+  cursor: pointer;
+}

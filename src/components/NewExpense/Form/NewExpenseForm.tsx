@@ -73,7 +73,9 @@ const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
         onChange={onChange}
         required
       />
-      <button type="submit">Add</button>
+      <button className={styles.button} type="submit">
+        Add
+      </button>
     </form>
   );
 };

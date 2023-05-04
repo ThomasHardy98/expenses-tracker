@@ -33,7 +33,9 @@ const ExpenseProvider = ({ children }: ExpenseProviderType) => {
   };
 
   const addExpense = (expense: ExpenseType) => {
-    setExpenses((prev) => [expense, ...prev]);
+    setExpenses((prev) =>
+      [expense, ...prev].sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+    );
     const currentExpenses = localStorage.getItem("thardy_expenses");
     if (currentExpenses) {
       const parsed = JSON.parse(currentExpenses);

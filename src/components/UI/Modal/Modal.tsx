@@ -13,6 +13,7 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
   const mount = document.getElementById("modalRoot");
 
   if (isOpen && mount) {
+    document.body.style.overflow = "hidden";
     return createPortal(
       <div className={styles.background}>
         <div className={styles.modal}>
@@ -25,6 +26,7 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
       mount
     );
   } else {
+    document.body.style.overflow = "unset";
     return null;
   }
 };

@@ -41,6 +41,10 @@
   background-color: unset;
 }
 
+input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 .button {
   background-color: $dark_color;
   border: 1px solid $light_color;

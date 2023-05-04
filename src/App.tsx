@@ -29,7 +29,11 @@ function App() {
             <TotalExpense />
           </div>
           <NewExpense />
-          <ExpenseList />
+          {ctx.expenses.length > 0 ? (
+            <ExpenseList />
+          ) : (
+            <p className={styles.description}>No expenses to show.</p>
+          )}
         </Fragment>
       )}
     </div>

@@ -1,5 +1,4 @@
 import { createPortal } from "react-dom";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import styles from "../Modal/Modal.module.scss";
 
@@ -15,7 +14,6 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
 
   if (isOpen && mount) {
     document.body.style.overflow = "hidden";
-    disableBodyScroll(document.body);
     return createPortal(
       <div className={styles.background}>
         <div className={styles.modal}>
@@ -29,7 +27,6 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
     );
   } else {
     document.body.style.overflow = "unset";
-    enableBodyScroll(document.body);
     return null;
   }
 };

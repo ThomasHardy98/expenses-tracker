@@ -15,7 +15,7 @@ const Expense = ({ id, name, cost, date }: ExpenseType) => {
 
   const costFormatted = formatter.format(cost);
 
-  const clickHandler = () => {
+  const deleteHandler = () => {
     ctx.deleteExpense(id);
   };
 
@@ -24,7 +24,7 @@ const Expense = ({ id, name, cost, date }: ExpenseType) => {
       <p>Name: {name}</p>
       <p>Cost: {costFormatted}</p>
       <p>Date: {date}</p>
-      <button onClick={clickHandler}>Delete</button>
+      <button onClick={deleteHandler}>Delete</button>
     </div>
   );
 };

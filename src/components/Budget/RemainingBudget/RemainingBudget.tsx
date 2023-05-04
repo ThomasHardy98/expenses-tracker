@@ -1,6 +1,9 @@
+import { useContext } from "react";
+
 import ExpenseContext from "context/ExpenseContext";
 import formatter from "helpers/formatter";
-import { useContext } from "react";
+
+import styles from "../RemainingBudget/RemainingBudget.module.scss";
 
 const RemainingBudget = () => {
   const ctx = useContext(ExpenseContext);
@@ -8,9 +11,11 @@ const RemainingBudget = () => {
   const remaining = formatter.format(ctx.budget - ctx.getTotalExpenditure());
 
   return (
-    <div>
-      <p>Remaining budget</p>
-      <p>{remaining}</p>
+    <div className={styles.container}>
+      <p className={styles.title}>Remaining budget</p>
+      <div className={styles.remainingBudgetContainer}>
+        <p className={styles.remainingBudgetText}>{remaining}</p>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import { useContext } from "react";
 
-import ExpenseContext from "context/ExpenseContext";
 import { useForm } from "hooks/useForm";
+import ExpenseContext from "context/ExpenseContext";
+
+import styles from "../Form/BudgetForm.module.scss";
 
 type BudgetFormValues = {
   budget: number;
@@ -27,7 +29,7 @@ const BudgetForm = () => {
   );
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={styles.form}>
       <span>
         £
         <input

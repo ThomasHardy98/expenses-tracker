@@ -17,20 +17,23 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1>Monthly expense tracker</h1>
+      <h1 className={styles.title}>Monthly Expense Tracker</h1>
       {!ctx.hiddenBudgetInput ? (
-        <Fragment>
-          <p>Enter your monthly budget</p>
-          {ctx.budget > 0 && <p>Current budget: {formattedBudget}</p>}
+        <div className={styles.container}>
+          <p className={styles.subheading}>Enter your monthly budget</p>
+          {ctx.budget > 0 && (
+            <p className={styles.subheadingTwo}>
+              Current budget: <b>{formattedBudget}</b>
+            </p>
+          )}
           <BudgetForm />
-        </Fragment>
+        </div>
       ) : (
         <Fragment>
-          <br />
           <div className={styles.analytics}>
             <Budget />
-            <TotalExpense />
             <RemainingBudget />
+            <TotalExpense />
           </div>
           <NewExpense />
           <ExpenseList />

@@ -1,0 +1,61 @@
+@import "../../styles/colors.scss";
+@import "../../styles/spacing.scss";
+@import "../../styles/fonts.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.budgetContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  padding: 30px;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  box-shadow: 0 0 0 4px #237327, 0 0 0 8px #2e9633, 0 0 0 12px #39b83f;
+}
+
+.title {
+  font-family: $secondary_font;
+  color: $light_color;
+  font-size: 1.1rem;
+}
+
+.budget {
+  display: flex;
+  gap: 6px;
+}
+
+.budgetText {
+  font-family: $secondary_font;
+  color: $light_color;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.editButton {
+  cursor: pointer;
+  border: none;
+  background-color: unset;
+  outline: transparent;
+}
+
+.editButton svg {
+  color: $light_color;
+}
+
+.editButton:hover svg {
+  color: #2e9633;
+}

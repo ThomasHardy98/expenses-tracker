@@ -1,0 +1,36 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/fonts.scss";
+@import "../../../styles/spacing.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.remainingBudgetContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  padding: 30px;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  box-shadow: 0 0 0 4px #b08349, 0 0 0 8px #daa45c, 0 0 0 12px #fabb69;
+}
+
+.title {
+  font-family: $secondary_font;
+  color: $light_color;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.remainingBudgetText {
+  font-family: $secondary_font;
+  color: $light_color;
+  font-weight: bold;
+  font-size: 26px;
+}

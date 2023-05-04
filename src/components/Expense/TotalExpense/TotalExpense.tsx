@@ -11,9 +11,11 @@ const TotalExpense = () => {
   const expenditure = formatter.format(ctx.getTotalExpenditure());
 
   return (
-    <div>
-      <p>Total expenditure</p>
-      <p>{expenditure}</p>
+    <div className={styles.container}>
+      <p className={styles.title}>Total expenditure</p>
+      <div className={styles.expenditureContainer}>
+        <p className={styles.expenditureText}>{expenditure}</p>
+      </div>
     </div>
   );
 };

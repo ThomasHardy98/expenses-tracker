@@ -9,20 +9,22 @@ const ExpenseList = () => {
   const ctx = useContext(ExpenseContext);
 
   return (
-    <ul className={styles.list}>
-      {ctx.expenses.map((expense, i) => {
-        return (
-          <li key={i} className={styles.listItem}>
-            <Expense
-              id={expense.id}
-              name={expense.name}
-              cost={expense.cost}
-              date={expense.date}
-            />
-          </li>
-        );
-      })}
-    </ul>
+    <div className={styles.wrapper}>
+      <ul className={styles.list}>
+        {ctx.expenses.map((expense, i) => {
+          return (
+            <li key={i} className={styles.listItem}>
+              <Expense
+                id={expense.id}
+                name={expense.name}
+                cost={expense.cost}
+                date={expense.date}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

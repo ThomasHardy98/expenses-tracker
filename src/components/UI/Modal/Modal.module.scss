@@ -32,10 +32,11 @@
   border: 1px solid $dark_color;
   font-family: $primary_font;
   color: $dark_color;
-  width: 100px;
+  width: 100%;
   padding: 6px 14px;
   border-radius: 4px;
   font-size: 1rem;
+  margin-top: 4px;
 }
 
 .button:hover {

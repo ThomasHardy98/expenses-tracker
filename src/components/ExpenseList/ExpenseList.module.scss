@@ -1,7 +1,13 @@
-.list {
-  list-style-type: none;
+@import "../../styles/colors.scss";
+@import "../../styles/fonts.scss";
+
+.wrapper {
   width: 100%;
   max-width: 700px;
+}
+
+.list {
+  list-style-type: none;
 }
 
 .listItem {

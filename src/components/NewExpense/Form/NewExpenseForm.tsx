@@ -49,7 +49,7 @@ const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
 
   return (
     <Fragment>
-      <h2 className={styles.title}>New expense form</h2>
+      <h2 className={styles.title}>New expense</h2>
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles.inputContainer}>
           <label>

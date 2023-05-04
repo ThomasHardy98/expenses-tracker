@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useEffect, useRef } from "react";
+import { FormEvent, useContext, useRef } from "react";
 
 import ExpenseContext from "context/ExpenseContext";
 

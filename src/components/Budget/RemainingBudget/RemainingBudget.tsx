@@ -13,7 +13,13 @@ const RemainingBudget = () => {
   return (
     <div className={styles.container}>
       <p className={styles.title}>Remaining budget</p>
-      <div className={styles.remainingBudgetContainer}>
+      <div
+        className={
+          Number((ctx.budget - ctx.getTotalExpenditure()).toFixed(2)) > 0
+            ? styles.remainingBudgetContainer
+            : styles.remainingBudgetContainerNegative
+        }
+      >
         <p className={styles.remainingBudgetText}>{remaining}</p>
       </div>
     </div>

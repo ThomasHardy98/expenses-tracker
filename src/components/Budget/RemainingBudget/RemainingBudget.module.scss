@@ -17,7 +17,20 @@
   border-radius: 50%;
   height: 180px;
   width: 180px;
-  box-shadow: 0 0 0 4px #b08349, 0 0 0 8px #daa45c, 0 0 0 12px #fabb69;
+  box-shadow: 0 0 0 4px #237327, 0 0 0 8px #2e9633, 0 0 0 12px #39b83f;
+}
+
+.remainingBudgetContainerNegative {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  padding: 30px;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  box-shadow: 0 0 0 4px #702222, 0 0 0 8px #962e2e, 0 0 0 12px #bc3a3a;
 }
 
 .title {

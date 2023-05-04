@@ -1,49 +1,45 @@
-import { useContext } from "react";
+import { FormEvent, useContext, useEffect, useRef } from "react";
 
-import { useForm } from "hooks/useForm";
 import ExpenseContext from "context/ExpenseContext";
 
 import styles from "../Form/BudgetForm.module.scss";
 
-type BudgetFormValues = {
-  budget: number;
-};
-
 const BudgetForm = () => {
   const ctx = useContext(ExpenseContext);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const initialState = {
-    budget: "",
-  };
-
-  const onAdd = () => {
-    const budget = Number((values as BudgetFormValues).budget);
-    ctx.updateBudget(budget);
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     ctx.changeHiddenBudgetInput(true);
-    clearForm();
   };
 
-  const { onChange, onSubmit, clearForm, values } = useForm(
-    onAdd,
-    initialState
-  );
+  const handleInput = () => {
+    if (inputRef.current) {
+      ctx.updateBudget(inputRef.current.valueAsNumber);
+    }
+  };
 
   return (
-    <form onSubmit={onSubmit} className={styles.form}>
-      <span>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <span className={styles.inputContainer}>
         £
         <input
+          className={styles.input}
           name="budget"
           id="budget"
           type="number"
           min="0"
           step=".01"
-          value={(values as BudgetFormValues).budget || initialState.budget}
-          onChange={onChange}
+          ref={inputRef}
+          value={ctx.budget || ""}
+          onChange={handleInput}
           required
+          autoFocus
         />
       </span>
-      <button type="submit">Update</button>
+      <button className={styles.button} type="submit">
+        Update
+      </button>
     </form>
   );
 };

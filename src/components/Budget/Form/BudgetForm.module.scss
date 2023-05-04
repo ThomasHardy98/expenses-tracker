@@ -1,5 +1,61 @@
 @import "../../../styles/spacing.scss";
+@import "../../../styles/colors.scss";
+@import "../../../styles/fonts.scss";
 
 .form {
-  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  padding: $small_padding;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  font-size: 1.4rem;
+  font-family: $primary_font;
+  color: $light_color;
+  margin-bottom: 30px;
+  border: 1px solid $light_color;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+}
+
+.input {
+  font-size: 1.4rem;
+  text-align: left;
+  outline: transparent;
+  border: none;
+  width: 80px;
+  font-family: $primary_font;
+  color: $light_color;
+  background-color: unset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.button {
+  background-color: $light_color;
+  border: 1px solid $dark_color;
+  font-family: $primary_font;
+  color: $dark_color;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.button:hover {
+  background-color: $dark_color;
+  color: $light_color;
+  border: 1px solid $light_color;
+  cursor: pointer;
 }

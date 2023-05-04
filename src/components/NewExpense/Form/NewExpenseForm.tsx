@@ -59,7 +59,6 @@ const NewExpenseForm = ({ toggleModal }: ExpenseFormValue) => {
           name="cost"
           id="cost"
           type="number"
-          step=".01"
           value={(values as ExpenseFormValues).cost || initialState.cost}
           onChange={onChange}
           required

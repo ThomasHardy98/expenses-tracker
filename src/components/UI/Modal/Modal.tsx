@@ -14,6 +14,9 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
 
   if (isOpen && mount) {
     document.body.style.overflow = "hidden";
+    document.ontouchmove = function (e) {
+      e.preventDefault();
+    };
     return createPortal(
       <div className={styles.background}>
         <div className={styles.modal}>
@@ -27,6 +30,9 @@ const Modal = ({ children, isOpen, toggle, closeText }: ModalType) => {
     );
   } else {
     document.body.style.overflow = "unset";
+    document.ontouchmove = function (e) {
+      return true;
+    };
     return null;
   }
 };

@@ -1,6 +1,7 @@
 @import "../../../styles/colors.scss";
 @import "../../../styles/fonts.scss";
 @import "../../../styles/spacing.scss";
+@import "../../../styles/media-sizes.scss";
 
 .title {
   font-family: $primary_font;
@@ -64,4 +65,22 @@ input[type="date"]::-webkit-input-placeholder {
   color: $dark_color;
   border: 1px solid $dark_color;
   cursor: pointer;
+}
+
+@media only screen and (max-width: $tablet) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .inputContainer {
+    font-size: 0.9rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
 }

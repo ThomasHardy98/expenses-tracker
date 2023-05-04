@@ -1,6 +1,7 @@
 @import "../../styles/colors.scss";
 @import "../../styles/fonts.scss";
 @import "../../styles/spacing.scss";
+@import "../../styles/media-sizes.scss";
 
 .container {
   display: flex;
@@ -35,4 +36,26 @@
 
 .button svg {
   font-size: 1.1rem;
+}
+
+@media only screen and (max-width: $tablet) {
+  .value {
+    font-size: 0.9rem;
+  }
+
+  .button svg {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .container {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .value {
+    justify-content: center;
+    width: 100%;
+  }
 }

@@ -1,11 +1,14 @@
 @import "./styles/spacing.scss";
 @import "./styles/colors.scss";
 @import "./styles/fonts.scss";
+@import "./styles/media-sizes.scss";
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 html,
@@ -23,6 +26,7 @@ body {
 }
 
 .title {
+  text-align: center;
   font-family: $primary_font;
   color: $light_color;
   font-size: 3rem;
@@ -51,4 +55,30 @@ body {
   font-family: $secondary_font;
   color: $light_color;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: $tablet) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .subheading {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .analytics {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 0;
+  }
 }

@@ -1,5 +1,6 @@
 @import "../../styles/colors.scss";
 @import "../../styles/fonts.scss";
+@import "../../styles/media-sizes.scss";
 
 .wrapper {
   width: 100%;
@@ -12,4 +13,16 @@
 
 .listItem {
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: $tablet) {
+  .wrapper {
+    max-width: 550px;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .wrapper {
+    max-width: 200px;
+  }
 }

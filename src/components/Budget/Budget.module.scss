@@ -1,6 +1,7 @@
 @import "../../styles/colors.scss";
 @import "../../styles/spacing.scss";
 @import "../../styles/fonts.scss";
+@import "../../styles/media-sizes.scss";
 
 .container {
   display: flex;
@@ -43,6 +44,7 @@
   color: $light_color;
   font-weight: bold;
   font-size: 26px;
+  white-space: nowrap;
 }
 
 .editButton {
@@ -58,4 +60,19 @@
 
 .editButton:hover svg {
   color: #2e9633;
+}
+
+@media only screen and (max-width: $tablet) {
+  .budgetContainer {
+    height: 130px;
+    width: 130px;
+  }
+
+  .budgetText {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
 }

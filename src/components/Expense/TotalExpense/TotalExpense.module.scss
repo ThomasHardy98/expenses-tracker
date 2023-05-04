@@ -1,6 +1,7 @@
 @import "../../../styles/colors.scss";
 @import "../../../styles/fonts.scss";
 @import "../../../styles/spacing.scss";
+@import "../../../styles/media-sizes.scss";
 
 .container {
   display: flex;
@@ -33,9 +34,25 @@
   color: $light_color;
   font-weight: bold;
   font-size: 26px;
+  white-space: nowrap;
 }
 
 .ghostDiv {
   height: 36px;
   width: 100%;
+}
+
+@media only screen and (max-width: $tablet) {
+  .expenditureContainer {
+    height: 130px;
+    width: 130px;
+  }
+
+  .expenditureText {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
 }

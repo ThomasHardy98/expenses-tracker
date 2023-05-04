@@ -1,5 +1,11 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/fonts.scss";
+@import "../../../styles/spacing.scss";
+
 .background {
   position: fixed;
+  display: flex;
+  justify-content: center;
   z-index: 1;
   left: 0;
   top: 0;
@@ -10,23 +16,31 @@
 }
 
 .modal {
-  background-color: #fefefe;
-  margin: 15% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $light_color;
+  border-radius: 6px;
+  margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  width: fit-content;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  background-color: $light_color;
+  border: 1px solid $dark_color;
+  font-family: $primary_font;
+  color: $dark_color;
+  width: 100px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.button:hover,
-.button:focus {
-  color: black;
-  text-decoration: none;
+.button:hover {
+  background-color: $dark_color;
+  color: $light_color;
+  border: 1px solid $light_color;
   cursor: pointer;
 }

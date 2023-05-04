@@ -4,6 +4,7 @@ import {
   faCalendar,
   faPoundSign,
   faTag,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
 import ExpenseContext from "context/ExpenseContext";
@@ -43,7 +44,7 @@ const Expense = ({ id, name, cost, date }: ExpenseType) => {
         <p>{formattedDate}</p>
       </div>
       <button className={styles.button} onClick={deleteHandler}>
-        Delete
+        <FontAwesomeIcon icon={faTrashCan} />
       </button>
     </div>
   );

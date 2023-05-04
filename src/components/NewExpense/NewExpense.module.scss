@@ -3,20 +3,20 @@
 @import "../../styles/spacing.scss";
 
 .button {
-  background-color: $light_color;
-  border: 1px solid $dark_color;
+  background-color: $dark_color;
+  border: 1px solid $light_color;
   font-family: $primary_font;
-  color: $dark_color;
+  color: $light_color;
   padding: 6px 14px;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: $padding;
   margin-top: $padding;
 }
 
 .button:hover {
-  background-color: $dark_color;
-  color: $light_color;
-  border: 1px solid $light_color;
+  background-color: $light_color;
+  color: $dark_color;
+  border: 1px solid $dark_color;
   cursor: pointer;
 }

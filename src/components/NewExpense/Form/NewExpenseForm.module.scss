@@ -35,18 +35,10 @@
   text-align: left;
   outline: transparent;
   border: none;
-  width: auto;
+  width: 100%;
   font-family: $secondary_font;
   color: $dark_color;
   background-color: unset;
-}
-
-input::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
-input[type="date"]::-webkit-input-placeholder {
-  visibility: hidden !important;
 }
 
 .button {
